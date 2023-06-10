@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require ('path');
 
-// PSQL url : postgres://dvannxbr:PP-Bq4rP4Thr5goMfRxeoPe0AIPWE04D@mahmud.db.elephantsql.com/dvannxbr
-
 const PORT= 3000
 
 const app = express();
