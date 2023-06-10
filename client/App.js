@@ -1,5 +1,6 @@
 import React from "react";
 import Home from './Containers/Home.js'
+import SwitchDisplay from './Containers/SwitchDisplay.js'
 
 const App = () => {
 
@@ -9,7 +10,8 @@ const App = () => {
 
   return (
     <div>
-      <Home />
+      {/* <Home /> */}
+      <SwitchDisplay />
     </div>
   );
 }
