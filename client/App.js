@@ -1,6 +1,7 @@
 import React from "react";
-import Home from './Containers/Home.js'
-import SwitchDisplay from './Containers/SwitchDisplay.js'
+import Home from './Containers/Home.js';
+import SwitchDisplay from './Containers/SwitchDisplay.js';
+import ActivityDisplay from './Containers/ActivityDisplay.js';
 
 const App = () => {
 
@@ -11,7 +12,8 @@ const App = () => {
   return (
     <div>
       {/* <Home /> */}
-      <SwitchDisplay />
+      {/* <SwitchDisplay /> */}
+      <ActivityDisplay />
     </div>
   );
 }
