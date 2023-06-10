@@ -1,0 +1,53 @@
+const express = require('express');
+const path = require ('path');
+
+// PSQL url : postgres://dvannxbr:PP-Bq4rP4Thr5goMfRxeoPe0AIPWE04D@mahmud.db.elephantsql.com/dvannxbr
+
+const PORT= 3000
+
+const app = express();
+
+//handles parsing 
+app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+
+// Do we need to serve static files??
+
+
+// Require in all our routers
+const activityRouter = require('./routes/activity');
+const checkoutRouter = require ('./routes/checkout');
+const switchRouter = require('./routes/switch');
+
+
+// Route handlers
+app.use('/activity', activityRouter);
+app.use('/checkout', checkoutRouter);
+app.use('/switch', switchRouter);
+
+
+
+//Route error handler
+app.use((req,res) => res.status(404).send('this is not the page you are looking for'))
+
+
+// Global error handler
+app.use((err, requ, res, next) => {
+  const defaultErr = {
+    log: 'Express error handler caught unkown middleware error',
+    status: 400,
+    message: { err: 'An error occurred' }
+  };
+
+  const errorObj = Object.assign(defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
+});
+
+//server is listening on port 3000
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}...`)
+});
+
+module.exports = app;
