@@ -16,8 +16,8 @@ const ActivityDisplay = ({activity}) => {
         <TimerBox />
       </div>
       <div className="button-row">
-        {/* <Switch /> */}
-        {/* <Checkout /> */}
+        <Switch />
+        <Checkout />
       </div>
     </div>
   )
