@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
 import { useState } from 'react';
 
 
 
-const InputWindow = () => {
+const InputWindow = ({setActivity}) => {
   const [ updateInput, setInput ] = useState('');
-  const [ activity, setActivity ] = useState('');
-
   function handleActivity (e) {
     e.preventDefault();
     setActivity(updateInput);

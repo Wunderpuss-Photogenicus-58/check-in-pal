@@ -1,8 +1,9 @@
 import React from "react";
 import { ActivityBox, TimerBox } from '../Components/ActivityAndTimer';
 import { Switch, Checkout} from '../Components/SwitchAndCheckout';
+import { useState } from "react";
 
-const ActivityDisplay = () => {
+const ActivityDisplay = ({activity}) => {
 
 
 
@@ -11,12 +12,12 @@ const ActivityDisplay = () => {
   return (
     <div className="activitydisplay">
       <div className="box-row">
-        <ActivityBox />
+        <ActivityBox activity={activity}/>
         <TimerBox />
       </div>
       <div className="button-row">
-        <Switch />
-        <Checkout />
+        {/* <Switch /> */}
+        {/* <Checkout /> */}
       </div>
     </div>
   )

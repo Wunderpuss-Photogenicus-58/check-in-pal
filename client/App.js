@@ -2,9 +2,11 @@ import React from "react";
 import Home from './Containers/Home.js';
 import SwitchDisplay from './Containers/SwitchDisplay.js';
 import ActivityDisplay from './Containers/ActivityDisplay.js';
+import { useState } from "react";
 
 const App = () => {
-
+  const [ activity, setActivity ] = useState('');
+  // console.log(activity);
 
 
 
@@ -12,8 +14,8 @@ const App = () => {
   return (
     <div>
       {/* <Home /> */}
-      {/* <SwitchDisplay /> */}
-      <ActivityDisplay />
+      <SwitchDisplay setActivity={setActivity}/>
+      <ActivityDisplay activity={activity}/>
     </div>
   );
 }
