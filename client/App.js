@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div>
       {/* <Home /> */}
-      <SwitchDisplay setActivity={setActivity}/>
+      <SwitchDisplay activity={activity} setActivity={setActivity}/>
       <ActivityDisplay activity={activity}/>
     </div>
   );

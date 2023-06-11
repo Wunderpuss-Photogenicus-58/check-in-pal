@@ -4,7 +4,7 @@ import InputWindow from '../Components/InputWindow.js'
 import { useState } from "react"
 
 
-const SwitchDisplay = ({setActivity}) => {
+const SwitchDisplay = ({activity, setActivity}) => {
 
 
 
@@ -12,9 +12,7 @@ const SwitchDisplay = ({setActivity}) => {
   return (
     <div className="switchpage">
       <Prompt />
-      <InputWindow 
-        setActivity={setActivity}
-      />
+      <InputWindow activity={activity} setActivity={setActivity}/>
     </div>
   )
 }
