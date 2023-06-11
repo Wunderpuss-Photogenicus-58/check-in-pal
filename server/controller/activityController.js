@@ -4,8 +4,8 @@ const db = require('../models/activityModel');
 const activityController = {};
 
 activityController.postActivity = async (req, res, next) => {
-  const activity = 'leetcode';
-  const starttime = 900;
+  const activity = 'codewars';
+  const starttime = 1100;
   const day = '06/10';
  
   try {
