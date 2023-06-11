@@ -1,7 +1,9 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom"
 
 const Switch = () => {
+  const navigate = useNavigate();
+
   // holds current time functionality
   function logTime() {
     // logs the exact current time
@@ -14,6 +16,7 @@ const Switch = () => {
     // declares endTime set to military time to send to the database for calculations
     const endTime = hours * 100 + minutes;
     // ========== NEEDS MORE FUNCTIONALITY TO SEND endTime TO THE DATABASE ==========
+    navigate('/switch');
   }
   
   

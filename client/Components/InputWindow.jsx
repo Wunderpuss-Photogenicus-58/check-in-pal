@@ -1,18 +1,19 @@
 import React from 'react';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom'
 
 // drilling prop setActivity for use in our component
 const InputWindow = ({setActivity}) => {
   // declaring updateInput as a new state initially at '', with setter function setInput
   const [ updateInput, setInput ] = useState('');
+  const navigate = useNavigate();
 
   // holds refresh prevention, setActivity/setInput functionality, and runs another function
   function handleActivity (e) {
     e.preventDefault();
     setActivity(updateInput);
     setInput('');
-    logTime()
+    logTime();
   }
 
   // called from handleActivity()
@@ -27,9 +28,8 @@ const InputWindow = ({setActivity}) => {
     // declares startTime set to military time to send to the database for calculations
     const startTime = hours * 100 + minutes;
     // ========== NEEDS MORE FUNCTIONALITY TO SEND startTime TO THE DATABASE ==========
+    navigate("/activity");
   }
-
-
 
   // returning div inputwindow
   return (

@@ -30,7 +30,7 @@ module.exports = {
     },
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    // publicPath: '/',
     filename: 'bundle.js',
   },
   plugins: [
@@ -44,7 +44,7 @@ module.exports = {
       directory: path.resolve(__dirname, 'build'),
       publicPath: '/',
     },
-    historyApiFallback: true,
+    // historyApiFallback: true,
     compress: true,
     port: 8080
   }
