@@ -1,14 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 
 const CheckinButton = () => {
-
-
+  const navigate = useNavigate();
+  
+  function switchTabs() {
+    navigate('/switch');
+  }
 
   return (
     <div className="checkin">
-      <button>
-      Check in
-      </button>
+      <button onClick={switchTabs}>Check in</button>
     </div>
   )
 }
