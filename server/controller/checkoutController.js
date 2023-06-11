@@ -3,55 +3,35 @@ const db = require('../models/activityModel');
 
 const checkoutController = {};
 
-checkoutController.postTotals = async (req, res, next) => {
-  const activity = 'codewars';
-  const starttime = 1100;
-  const day = '06/10';
+checkoutController.getAllTableData = async (req, res, next) => {
  
   try {
     const text = `
-    INSERT INTO time_card (activity, starttime, day)
-    VALUES ($1, $2, $3)
+    SELECT * FROM time_card
     `;
 
-    const params = [activity, starttime, day];
-    const result = await db.query(text, params);
-    console.log('result is: ', result);
+    const result = await db.query(text);
+
+    res.locals.timecard = result.rows;
+    
+    // Take the last ids endtime the first ids start time and subtract to get the total hours
+    const totalHours = res.locals.timecard[res.locals.timecard.length - 1].endtime - res.locals.timecard[0].starttime;
+    
+    res.locals.timecard.totals = totalHours;
+    
+    res.locals.timecard.push({ total: totalHours });
+
+    console.log('totalHours is: ', totalHours);
+    console.log('res.locals.timecard is: ', res.locals.timecard);
+    
     next();
   }
   
   catch(err) {
     next({
-      log: 'Express error handler caught in checkoutController.postTotals middleware',
+      log: 'Express error handler caught in checkoutController.getAllTableData middleware',
       status: 400,
-      message: { err: 'Failed to insert totals to database' }
-    });
-  }
-
-};
-
-checkoutController.getTimecard = async (req, res, next) => {
-  const activity = 'codewars';
-  const starttime = 1100;
-  const day = '06/10';
- 
-  try {
-    const text = `
-    INSERT INTO time_card (activity, starttime, day)
-    VALUES ($1, $2, $3)
-    `;
-
-    const params = [activity, starttime, day];
-    const result = await db.query(text, params);
-    console.log('result is: ', result);
-    next();
-  }
-  
-  catch(err) {
-    next({
-      log: 'Express error handler caught in checkoutController.getTimecard middleware',
-      status: 400,
-      message: { err: 'Failed to get timecard from database' }
+      message: { err: 'Failed to get table data from database' }
     });
   }
 
