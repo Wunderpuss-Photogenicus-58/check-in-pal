@@ -1,5 +1,5 @@
 import React from "react";
-import CheckinButton from "../Components/CheckinButton.js";
+import CheckinButton from "../Components/CheckinButton.jsx";
 
 const Home = () => {
   

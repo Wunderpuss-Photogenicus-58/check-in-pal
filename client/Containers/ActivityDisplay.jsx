@@ -1,6 +1,6 @@
 import React from "react";
-import { ActivityBox, TimerBox } from '../Components/ActivityAndTimer';
-import { Switch, Checkout} from '../Components/SwitchAndCheckout';
+import { ActivityBox, TimerBox } from '../Components/ActivityAndTimer.jsx';
+import { Switch, Checkout} from '../Components/SwitchAndCheckout.jsx';
 import { useState } from "react";
 
 const ActivityDisplay = ({activity}) => {
