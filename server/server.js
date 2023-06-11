@@ -10,9 +10,6 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
 
-// Do we need to serve static files??
-
-
 // Require in all our routers
 const activityRouter = require('./routes/activity');
 const checkoutRouter = require ('./routes/checkout');
@@ -26,7 +23,7 @@ app.use('/switch', switchRouter);
 
 
 
-//Route error handler
+// Catch-all route error handler
 app.use((req,res) => res.status(404).send('this is not the page you are looking for'))
 
 
@@ -48,4 +45,5 @@ app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`)
 });
 
+//export module
 module.exports = app;
