@@ -31,7 +31,7 @@ app.use((req,res) => res.status(404).send('this is not the page you are looking 
 
 
 // Global error handler
-app.use((err, requ, res, next) => {
+app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unkown middleware error',
     status: 400,

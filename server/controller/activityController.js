@@ -13,13 +13,21 @@ activityController.postActivity = async (req, res, next) => {
     INSERT INTO time_card (activity, starttime, day)
     VALUES ($1, $2, $3)
     `;
+
     const params = [activity, starttime, day];
     const result = await db.query(text, params);
+    console.log('result is: ', result);
     next();
   }
+  
   catch(err) {
-    next(err);
+    next({
+      log: 'Express error handler caught in activityController.postActivity middleware',
+      status: 400,
+      message: { err: 'Failed to insert to database' }
+    });
   }
+
 };
 
 module.exports = activityController;
