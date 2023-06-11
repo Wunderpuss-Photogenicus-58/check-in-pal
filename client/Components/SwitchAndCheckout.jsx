@@ -2,21 +2,22 @@ import React from "react";
 
 
 const Switch = () => {
+  // holds current time functionality
   function logTime() {
-    // gets current time
+    // logs the exact current time
     const currentTime = new Date();
   
-    // gets hour/minute from logged currentTime
+    // logs the hour and minutes from currentTime
     const hours = currentTime.getHours();
     const minutes = currentTime.getMinutes();
   
-    // converting to military time for database calculations
+    // declares endTime set to military time to send to the database for calculations
     const endTime = hours * 100 + minutes;
-    console.log("Military time: " + endTime);
+    // ========== NEEDS MORE FUNCTIONALITY TO SEND endTime TO THE DATABASE ==========
   }
   
   
-  
+  // returning div switch with button 'Switch' with an onClick to call our logTime function
   return (
     <div className="switch">
       <button id="switch-button" onClick={logTime}>Switch</button>
@@ -26,22 +27,23 @@ const Switch = () => {
 
 
 const Checkout = () => {
+  // holds current time functionality
   function logTime() {
-    // gets current time
+    // logs the exact current time
     const currentTime = new Date();
   
-    // gets hour/minute from logged currentTime
+    // logs the hour and minutes from currentTime
     const hours = currentTime.getHours();
     const minutes = currentTime.getMinutes();
   
-    // converting to military time for database calculations
+    // declares endTime set to military time to send to the database for calculations
     const endTime = hours * 100 + minutes;
-    console.log("Military time: " + endTime);
+    // ========== NEEDS MORE FUNCTIONALITY TO SEND endTime TO THE DATABASE ==========
   }
   
 
 
-
+  // returning div checkout with button 'Checkout' with an onClick to call our logTime function
   return (
     <div className="checkout">
       <button id="checkout-button" onClick={logTime}>Checkout</button>
