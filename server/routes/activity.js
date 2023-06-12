@@ -3,10 +3,11 @@ const express = require('express');
 const activityController = require('../controller/activityController');
 
 const router = express.Router();
-//handles post request with middleware
-router.post('/', activityController.postActivity, (req, res) => {
+
+
+// Route that handles patch request to the SQL database, updating the end time of an activity before switching to a new one
+router.patch('/', activityController.updateEndtime, (req, res) => {
   res.sendStatus(200);
 });
 
-//export module
 module.exports = router;

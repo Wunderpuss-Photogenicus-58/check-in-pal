@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-const activityController = require('../controller/activityController');
+const activityController = require('../controller/switchController');
 
 const PG_URI = 'postgres://dvannxbr:PP-Bq4rP4Thr5goMfRxeoPe0AIPWE04D@mahmud.db.elephantsql.com/dvannxbr';
 
