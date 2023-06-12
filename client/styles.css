@@ -25,3 +25,8 @@ body {
       background-position: 0% 50%;
   }
 }
+
+#inputfield:focus {
+  outline: none;
+  box-shadow: none;
+}
