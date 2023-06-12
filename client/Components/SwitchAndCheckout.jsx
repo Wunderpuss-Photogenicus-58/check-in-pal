@@ -5,7 +5,7 @@ const Switch = () => {
   const navigate = useNavigate();
 
   // holds current time functionality
-  function logTime() {
+  async function logTime() {
     // logs the exact current time
     const currentTime = new Date();
   
@@ -16,6 +16,24 @@ const Switch = () => {
     // declares endTime set to military time to send to the database for calculations
     const endTime = hours * 100 + minutes;
     // ========== NEEDS MORE FUNCTIONALITY TO SEND endTime TO THE DATABASE ==========
+    try {
+      const response = await fetch ('http://localhost:3000/activity', {
+        //specify the method that is going to be used
+        method: 'PATCH',
+        //parse data into the body
+        body: JSON.stringify({endTime: endTime}),
+        // define headers
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      // console log the message depends by the result of sending data
+      if (response.ok) console.log('Data has been sent to the database!');
+      else console.log('Failed to send data to the database');
+    } catch (error) {
+      // console log the error
+      console.log('An error occurred while sending data to the database:', error);
+    }
     navigate('/switch');
   }
   

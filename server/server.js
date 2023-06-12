@@ -6,9 +6,11 @@ const PORT= 3000
 
 const app = express();
 
-//handles parsing 
+// Handles cors, originally used no cors on front end, then took no cors off and added this to work
 app.use(cors());
+//handles parsing 
 app.use(express.json());
+// What this do tho?
 app.use(express.urlencoded({ extended: true }));
 
 

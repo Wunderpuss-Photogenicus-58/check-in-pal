@@ -6,10 +6,6 @@ const switchController = {};
 switchController.postActivity = async (req, res, next) => {
   const { activity, startTime } = req.body;
 
-  console.log('req.body: ', req.body);
-  // const activity = 'testwork';
-  // const startTime = 1400;
-
  //Try & catch block
   try {
  //SQL method to insert data into the time_card table   
@@ -21,7 +17,7 @@ switchController.postActivity = async (req, res, next) => {
     const params = [activity, startTime];
     //Query the result
     const result = await db.query(text, params);
-    console.log('result is: ', result);
+    // console.log('result is: ', result);
     //allow for the middleware function to continue to next function/middleware
     next();
   }
