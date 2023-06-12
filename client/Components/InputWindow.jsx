@@ -18,12 +18,13 @@ const InputWindow = ({setActivity}) => {
   function handleActivity (e) {
     e.preventDefault();
     setActivity(input);
-    setInput('');
     logTime();
+    setInput('');
+    navigate("/activity");
   }
 
   // called from handleActivity()
-  function logTime() {
+  async function logTime() {
     // logs the exact current time
     const currentTime = new Date();
   
@@ -34,7 +35,20 @@ const InputWindow = ({setActivity}) => {
     // declares startTime set to military time to send to the database for calculations
     const startTime = hours * 100 + minutes;
     // ========== NEEDS MORE FUNCTIONALITY TO SEND startTime TO THE DATABASE ==========
-    navigate("/activity");
+    try {
+      const response = await fetch ('http://localhost:3000/switch', {
+        method: 'POST',
+        body: JSON.stringify({activity: input, startTime: startTime}),
+        // mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      if (response.ok) console.log('Data has been sent to the database!');
+      else console.log('Failed to send data to the database');
+    } catch (error) {
+      console.log('An error occurred while sending data to the database:', error);
+    }
   }
 
   // returning div inputwindow

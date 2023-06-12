@@ -1,13 +1,15 @@
 const express = require('express');
 const path = require ('path');
+const cors = require ('cors');
 
 const PORT= 3000
 
 const app = express();
 
 //handles parsing 
+app.use(cors());
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 
 // Require in all our routers

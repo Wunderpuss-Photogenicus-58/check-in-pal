@@ -4,18 +4,21 @@ const db = require('../models/activityModel');
 const switchController = {};
 //create postActivity function
 switchController.postActivity = async (req, res, next) => {
-  const activity = 'interviews';
-  const starttime = 1130;
-  const day = '06/10';
- //Try & catch block 
+  const { activity, startTime } = req.body;
+
+  console.log('req.body: ', req.body);
+  // const activity = 'testwork';
+  // const startTime = 1400;
+
+ //Try & catch block
   try {
  //SQL method to insert data into the time_card table   
     const text = `
-    INSERT INTO time_card (activity, starttime, day)
-    VALUES ($1, $2, $3)
+    INSERT INTO time_card (activity, starttime)
+    VALUES ($1, $2)
     `;
 //create a variable that holds the params values
-    const params = [activity, starttime, day];
+    const params = [activity, startTime];
     //Query the result
     const result = await db.query(text, params);
     console.log('result is: ', result);
