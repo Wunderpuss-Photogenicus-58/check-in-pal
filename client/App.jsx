@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 const App = () => {
   // create state called 'activity' and assign it to empty string and it's setter function as 'setActivity'
   const [ activity, setActivity ] = useState('');
-  // console.log(activity);
+
 
   // return the routes , each rendering a component at their respective paths
   return (
