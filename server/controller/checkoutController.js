@@ -23,8 +23,8 @@ checkoutController.getAllTableData = async (req, res, next) => {
     //push totalHours variable into the end of the res.locals.timecard array
     res.locals.timecard.push({ total: totalHours });
 
-    console.log('totalHours is: ', totalHours);
-    console.log('res.locals.timecard is: ', res.locals.timecard);
+    // console.log('totalHours is: ', totalHours);
+    // console.log('res.locals.timecard is: ', res.locals.timecard);
     //continue to the next middleware function
     next();
   }
