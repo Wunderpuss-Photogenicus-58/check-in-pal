@@ -1,38 +1,75 @@
+// const db = require('../models/activityModel');
+
+// //create empty controller object
+// const activityController = {};
+// //create postActivity function
+// activityController.postActivity = async (req, res, next) => {
+//   const activity = 'codewars';
+//   const starttime = 1100;
+//   const day = '06/10';
+//  //Try & catch block 
+//   try {
+//  //SQL method to insert data into the time_card table   
+//     const text = `
+//     INSERT INTO time_card (activity, starttime, day)
+//     VALUES ($1, $2, $3)
+//     `;
+// //create a variable that holds the params values
+//     const params = [activity, starttime, day];
+//     //Query the result
+//     const result = await db.query(text, params);
+//     console.log('result is: ', result);
+//     //allow for the middleware function to continue to next function/middleware
+//     next();
+//   }
+//   //catch error handler
+//   catch(err) {
+//     next({
+//       log: 'Express error handler caught in activityController.postActivity middleware',
+//       status: 400,
+//       message: { err: 'Failed to insert to database' }
+//     });
+//   }
+
+// };
+
+// //export module
+// module.exports = activityController;
+
 const db = require('../models/activityModel');
 
-
+//create empty controller object
 const switchController = {};
-
-// Updates 'endtime' column of a particular row in the table
-switchController.updateEndtime = async (req, res, next) => {
-  // Get the endtime from the req object that is sent from the client/front end
-  const endtime = 1130;
-  
+//create postActivity function
+switchController.postActivity = async (req, res, next) => {
+  const activity = 'interviews';
+  const starttime = 1130;
+  const day = '06/10';
+ //Try & catch block 
   try {
-    // SQL query string for the patch request
+ //SQL method to insert data into the time_card table   
     const text = `
-    UPDATE time_card
-    SET endtime = $1
-    WHERE id IN (SELECT MAX(id) FROM time_card)
+    INSERT INTO time_card (activity, starttime, day)
+    VALUES ($1, $2, $3)
     `;
-    
-    // Array params that dynamically assigns the value on line 15 for the SET part of the SQL query
-    const params = [endtime];
-    // Store the result of the db query asynchronously in the result constant.
+//create a variable that holds the params values
+    const params = [activity, starttime, day];
+    //Query the result
     const result = await db.query(text, params);
+    console.log('result is: ', result);
+    //allow for the middleware function to continue to next function/middleware
     next();
   }
-  
-  // Error handler for failed db query
+  //catch error handler
   catch(err) {
     next({
-      log: 'Express error handler caught in switchController.updateEndtime middleware',
+      log: 'Express error handler caught in switchController.postActivity middleware',
       status: 400,
-      message: { err: 'Failed to update endtime in database' }
+      message: { err: 'Failed to insert to database' }
     });
   }
 
-  };
-  
+};
 
+//export module
 module.exports = switchController;

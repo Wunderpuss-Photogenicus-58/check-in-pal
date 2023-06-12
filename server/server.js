@@ -11,15 +11,15 @@ app.use(express.json());
 
 
 // Require in all our routers
+const switchRouter = require('./routes/switch');
 const activityRouter = require('./routes/activity');
 const checkoutRouter = require ('./routes/checkout');
-const switchRouter = require('./routes/switch');
 
 
 // Route handlers
+app.use('/switch', switchRouter);
 app.use('/activity', activityRouter);
 app.use('/checkout', checkoutRouter);
-app.use('/switch', switchRouter);
 
 
 
