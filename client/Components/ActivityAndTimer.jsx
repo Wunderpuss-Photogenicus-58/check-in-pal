@@ -58,7 +58,7 @@ const TimerBox = () => {
   return (
     <div className="timerbox">
       <h1>Timer</h1>
-      <div>{`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</div>
+      <p>{`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</p>
       {/* Button for stopping the timer */}
       {/* <button onClick={stopTimer}>Stop</button> */}
     </div>
