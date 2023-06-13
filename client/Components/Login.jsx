@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
-import { Grid, Paper, Avatar, TextField } from 'material-ui/core';
-import LockOutlinedIcon from 'material-ui/icons/LockOutlined'
+import { Grid, Paper, Avatar, TextField, } from '@mui/material';
+import{ LockOutlined } from '@mui/icons-material'
+// import Grid from '@mui/material/Grid';
+// import Paper from '@mui/material/Paper';
+// import Avatar from '@mui/material/Avatar';
+// import TextField from '@mui/material/TextField';
+
 
 const Login = () => {
     const paperStyle = {padding: 20, height: '70vh', width: 280, margin: '20px auto'};
@@ -29,7 +34,7 @@ const Login = () => {
             <Grid>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid>
-                        <Avatar><LockedOutlinedIcon /></Avatar>
+                        <Avatar><LockOutlined/></Avatar>
                         <h2>Sign In</h2>
                     </Grid>
                     <TextField label='Username' placeholder='Enter Username'></TextField>
