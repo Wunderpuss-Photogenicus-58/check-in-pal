@@ -17,7 +17,8 @@ const App = () => {
      // create routes
      <Routes>
       <Route path="/login" element={<Home />} />
-      <Route path="/signup" element={<SwitchDisplay activity={activity} setActivity={setActivity} />} />
+      <Route path="/signup" element={<SignUp />} />
+      {/* <Route path="/signup" element={<SwitchDisplay activity={activity} setActivity={setActivity} />} /> */}
       <Route path="/home" element={<ActivityDisplay activity={activity} />} />
       <Route path="/todo" element={<CheckoutDisplay />} />
       <Route path="/studyzone" element={<CheckoutDisplay />} />
