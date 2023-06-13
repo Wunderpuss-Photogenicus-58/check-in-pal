@@ -1,8 +1,9 @@
 import React from "react";
-import Home from './Containers/Home.jsx';
-import SwitchDisplay from './Containers/SwitchDisplay.jsx';
-import ActivityDisplay from './Containers/ActivityDisplay.jsx';
-import CheckoutDisplay from './Containers/CheckoutDisplay.jsx';
+import Home from './Components/Home.jsx';
+import SwitchDisplay from './Components/SwitchDisplay.jsx';
+import ActivityDisplay from './Components/ActivityDisplay.jsx';
+import CheckoutDisplay from './Components/CheckoutDisplay.jsx';
+import Login from './Components/Login.jsx';
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -15,9 +16,11 @@ const App = () => {
   return (
      // create routes
      <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/switch" element={<SwitchDisplay activity={activity} setActivity={setActivity} />} />
-      <Route path="/activity" element={<ActivityDisplay activity={activity} />} />
+      <Route path="/login" element={<Home />} />
+      <Route path="/signup" element={<SwitchDisplay activity={activity} setActivity={setActivity} />} />
+      <Route path="/home" element={<ActivityDisplay activity={activity} />} />
+      <Route path="/todo" element={<CheckoutDisplay />} />
+      <Route path="/studyzone" element={<CheckoutDisplay />} />
       <Route path="/checkout" element={<CheckoutDisplay />} />
     </Routes>
   );

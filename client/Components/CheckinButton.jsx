@@ -7,7 +7,7 @@ const CheckinButton = () => {
   
   // holds hook functionality to redirect page ('/' -> '/switch')
   function switchTabs() {
-    navigate('/switch');
+    navigate('/home');
   }
 
   // returning a div with button 'Check in' with an onClick to call our switchTabs function
