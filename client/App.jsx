@@ -15,14 +15,15 @@ const App = () => {
   // return the routes , each rendering a component at their respective paths
   return (
      // create routes
-     <Routes>
-      <Route path="/login" element={<Home />} />
-      <Route path="/signup" element={<SwitchDisplay activity={activity} setActivity={setActivity} />} />
-      <Route path="/home" element={<ActivityDisplay activity={activity} />} />
-      <Route path="/todo" element={<CheckoutDisplay />} />
-      <Route path="/studyzone" element={<CheckoutDisplay />} />
-      <Route path="/checkout" element={<CheckoutDisplay />} />
-    </Routes>
+    //  <Routes>
+    //   <Route path="/login" element={<Home />} />
+    //   <Route path="/signup" element={<SwitchDisplay activity={activity} setActivity={setActivity} />} />
+    //   <Route path="/home" element={<ActivityDisplay activity={activity} />} />
+    //   <Route path="/todo" element={<CheckoutDisplay />} />
+    //   <Route path="/studyzone" element={<CheckoutDisplay />} />
+    //   <Route path="/checkout" element={<CheckoutDisplay />} />
+    // </Routes>
+    <Login />
   );
 }
 
