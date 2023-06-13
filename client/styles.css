@@ -111,13 +111,13 @@ button:hover {
 
 /* CHECKOUT PAGE */
 
-.checkoutpage {
+.summarybox {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
 }
 
-.checkoutpage tr #total {
+.summarybox tr #total {
   font-weight: bold;
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
