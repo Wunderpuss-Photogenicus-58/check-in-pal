@@ -1,18 +1,14 @@
-import React from "react";
-import CheckinButton from "./CheckinButton.jsx";
+import React from 'react';
+import Navbar from './NavBar.jsx'
 
 const Home = () => {
 
-
-  // returning the hompage div
-  return (
-    <div className="homepage">
-      {/* Display the welcome message  */}
-      <h1 id="welcome">Hi! I'm your check in pal.</h1>
-      {/* renders the CheckinButton component */}
-      <CheckinButton />
-    </div>
-  );
+    return (
+        <>
+            <div>Home page</div>
+            <Navbar></Navbar>
+        </>
+    )
 }
 
 export default Home;
