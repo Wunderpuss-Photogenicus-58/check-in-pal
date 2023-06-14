@@ -1,25 +1,26 @@
-const db = require('../models/usersModel');
+const db = require('../models/userModel');
 
 const userController = {};
 
-usersController.newUser = async (req, res, next) => {
+userController.newUser = async (req, res, next) => {
   const { username, password } = req.body;
-  const text = `INSERT INTO public.users VALUES (DEFAULT, ${username}, ${password})`
+  const text = `INSERT INTO public.users VALUES (DEFAULT, $1, $2)`
+  console.log('entered middleware new user')
   try {
-    await db.query(text);
+    await db.query(text, [username, password]);
     console.log('New user created!')
     return next();
   } catch (err) {
     console.error(err)
     return next({
-        log: "Express error handler caught an error in the saveController.saveImage middleware",
-        status: 500,
-        message: {err: "An error occurred in the saveController.saveImage middleware"}
+      log: "Express error handler caught an error in the saveController.saveImage middleware",
+      status: 500,
+      message: { err: "An error occurred in the userController.newUser middleware" }
     })
   }
 }
 
-usersController.verifyUser = async (req, res, next) => {
+userController.verifyUser = async (req, res, next) => {
   const { username, password } = req.body;
   const text = 'SELECT * FROM public.users WHERE username = $1 and password = $2';
   try {
@@ -31,7 +32,7 @@ usersController.verifyUser = async (req, res, next) => {
       return next({
         log: 'Invalid credentials',
         status: 401,
-        message: {error: 'Invalid username or password'}
+        message: { error: 'Invalid username or password' }
       })
     }
   } catch (err) {
@@ -43,3 +44,5 @@ usersController.verifyUser = async (req, res, next) => {
     });
   }
 }
+
+module.exports = userController

@@ -1,8 +1,8 @@
 const express = require('express');
-const path = require ('path');
-const cors = require ('cors');
+const path = require('path');
+const cors = require('cors');
 
-const PORT= 3000
+const PORT = 3000
 
 const app = express();
 
@@ -15,21 +15,22 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Require in all our routers
-const usersRouter = require('./routes/users');
-const activityRouter = require('./routes/activity');
-const checkoutRouter = require ('./routes/checkout');
+const loginRouter = require('./routes/login');
+const signupRouter = require('./routes/signup')
+// const activityRouter = require('./routes/activity');
+// const checkoutRouter = require ('./routes/checkout');
 
 
 // Route handlers
-app.use('/login', usersRouter);
-app.use('/signup', usersRouter);
-app.use('/activity', activityRouter);
-app.use('/checkout', checkoutRouter);
+app.use('/login', loginRouter);
+app.use('/signup', signupRouter);
+// app.use('/activity', activityRouter);
+// app.use('/checkout', checkoutRouter);
 
 
 
 // Catch-all route error handler
-app.use((req,res) => res.status(404).send('this is not the page you are looking for'))
+app.use((req, res) => res.status(404).send('this is not the page you are looking for'))
 
 
 // Global error handler
