@@ -15,13 +15,14 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Require in all our routers
-const switchRouter = require('./routes/switch');
+const usersRouter = require('./routes/users');
 const activityRouter = require('./routes/activity');
 const checkoutRouter = require ('./routes/checkout');
 
 
 // Route handlers
-app.use('/switch', switchRouter);
+app.use('/login', usersRouter);
+app.use('/signup', usersRouter);
 app.use('/activity', activityRouter);
 app.use('/checkout', checkoutRouter);
 
